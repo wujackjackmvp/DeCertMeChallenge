@@ -29,10 +29,10 @@ contract ValueReferenceTypesTest is Test {
         uint256 returnedValue = valueRefContract.demonstrateValueType(500);
         
         // 验证返回值是新值
-        assertEq(returnedValue, 500, "返回值应该是500");
+        assertEq(returnedValue, 500, "Return value should be 500");
         
         // 验证全局变量未被修改（仍然是原值）
-        assertEq(valueRefContract.valueTypeNumber(), initialValue, "全局值类型变量应该保持不变");
+        assertEq(valueRefContract.valueTypeNumber(), initialValue, "Global value type variable should remain unchanged");
     }
 
     /**
@@ -47,8 +47,8 @@ contract ValueReferenceTypesTest is Test {
         valueRefContract.demonstrateReferenceTypeArray(0, newValue);
         
         // 验证数组元素已被修改
-        assertEq(valueRefContract.referenceTypeArray(0), newValue, "数组元素应该被修改");
-        assertNotEq(valueRefContract.referenceTypeArray(0), initialValue, "数组元素应该不同于初始值");
+        assertEq(valueRefContract.referenceTypeArray(0), newValue, "Array element should be modified");
+        assertNotEq(valueRefContract.referenceTypeArray(0), initialValue, "Array element should be different from initial value");
     }
 
     /**
@@ -59,10 +59,10 @@ contract ValueReferenceTypesTest is Test {
         uint256[] memory resultArray = valueRefContract.demonstrateMemoryReferenceType();
         
         // 验证返回的数组内容正确
-        assertEq(resultArray.length, 3, "返回的数组长度应该是3");
-        assertEq(resultArray[0], 10, "第一个元素应该是10");
-        assertEq(resultArray[1], 20, "第二个元素应该是20");
-        assertEq(resultArray[2], 30, "第三个元素应该是30");
+        assertEq(resultArray.length, 3, "Returned array length should be 3");
+        assertEq(resultArray[0], 10, "First element should be 10");
+        assertEq(resultArray[1], 20, "Second element should be 20");
+        assertEq(resultArray[2], 30, "Third element should be 30");
     }
 
     /**
@@ -77,9 +77,9 @@ contract ValueReferenceTypesTest is Test {
         
         // 验证结构体数据设置正确
         (string memory savedName, uint256 savedAge, bool savedActive) = valueRefContract.referenceTypeStruct();
-        assertEq(savedName, name, "姓名应该正确设置");
-        assertEq(savedAge, age, "年龄应该正确设置");
-        assertEq(savedActive, isActive, "激活状态应该正确设置");
+        assertEq(savedName, name, "Name should be set correctly");
+        assertEq(savedAge, age, "Age should be set correctly");
+        assertEq(savedActive, isActive, "Active status should be set correctly");
         
         // 更新结构体的部分字段
         uint256 newAge = 31;
@@ -87,10 +87,10 @@ contract ValueReferenceTypesTest is Test {
         
         // 验证年龄已更新
         (savedName, savedAge, savedActive) = valueRefContract.referenceTypeStruct();
-        assertEq(savedAge, newAge, "年龄应该被更新");
+        assertEq(savedAge, newAge, "Age should be updated");
         // 验证其他字段保持不变
-        assertEq(savedName, name, "姓名应该保持不变");
-        assertEq(savedActive, isActive, "激活状态应该保持不变");
+        assertEq(savedName, name, "Name should remain unchanged");
+        assertEq(savedActive, isActive, "Active status should remain unchanged");
     }
 
     /**
@@ -103,7 +103,7 @@ contract ValueReferenceTypesTest is Test {
         valueRefContract.addToMapping(key, value);
         
         // 验证映射数据添加正确
-        assertEq(valueRefContract.referenceTypeMapping(key), value, "映射中的值应该正确");
+        assertEq(valueRefContract.referenceTypeMapping(key), value, "Value in mapping should be correct");
     }
 
     /**
@@ -119,9 +119,9 @@ contract ValueReferenceTypesTest is Test {
         valueRefContract.demonstrateBothTypes(newValueTypeValue, arrayIndex, newArrayValue);
         
         // 验证值类型变量已更新
-        assertEq(valueRefContract.valueTypeNumber(), newValueTypeValue, "值类型变量应该被更新");
+        assertEq(valueRefContract.valueTypeNumber(), newValueTypeValue, "Value type variable should be updated");
         
         // 验证数组元素已更新
-        assertEq(valueRefContract.referenceTypeArray(arrayIndex), newArrayValue, "数组元素应该被更新");
+        assertEq(valueRefContract.referenceTypeArray(arrayIndex), newArrayValue, "Array element should be updated");
     }
 }
