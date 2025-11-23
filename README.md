@@ -1,6 +1,2 @@
-# 从0到1 编写web3.0教学
-
-## 值和引用
-ValueReferenceTypes.sol
-
-## 转账
+# 部署命令
+forge script script/Counter.s.sol:CounterScript --rpc-url local --broadcast

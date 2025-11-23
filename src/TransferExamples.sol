@@ -120,7 +120,9 @@ contract TransferExamples {
      * @dev 演示三种转账方式的对比
      * @param to 接收地址
      * @param amount 转账金额（以wei为单位）
-     * @return transferResult, sendResult, callResult 三种方式的结果
+     * @return transferResult transfer方式的结果
+     * @return sendResult send方式的结果
+     * @return callResult call方式的结果
      */
     function compareTransferMethods(address payable to, uint256 amount) public payable 
         returns (bool transferResult, bool sendResult, bool callResult) 

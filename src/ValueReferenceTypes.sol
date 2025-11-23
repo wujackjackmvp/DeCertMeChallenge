@@ -11,7 +11,7 @@ contract ValueReferenceTypes {
     uint256 public valueTypeNumber = 100; // 无符号整数
     bool public valueTypeBool = true;     // 布尔值
     address public valueTypeAddress = 0x1234567890123456789012345678901234567890; // 地址
-    bytes32 public valueTypeBytes = 0xabcdef; // 固定大小字节数组
+    bytes32 public valueTypeBytes = 0xabcdef0000000000000000000000000000000000000000000000000000000000; // 固定大小字节数组
 
     // ========== 引用类型示例 ==========
     // 引用类型：存储数据的引用（位置），赋值时可能会共享引用
