@@ -13,5 +13,11 @@ polygon = "${POLYGON_RPC_URL}"
 local = "http://127.0.0.1:8545"
 optimism = "${OPTIMISM_RPC_URL}"
 
+# 设置ABI输出位置到前端项目目录
+[profile.default.artifacts]
+# 启用ABI输出
+abi = true
+# ABI输出目录设置为前端demo项目的src目录
+abi-dir = "front-project/demo/src/abis"
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
